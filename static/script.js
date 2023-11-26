@@ -2,10 +2,10 @@ const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("task-input");
 const taskContainer = document.getElementById("task-container");
 
-// Fetch tasks from the server
-// Change this URL to match your server origin
+// Server URL
 const serverUrl = "http://127.0.0.1:5000";
 
+// Function to fetch tasks from the server
 function fetchTasks() {
   fetch(`${serverUrl}/tasks`)
     .then((response) => response.json())
@@ -13,14 +13,14 @@ function fetchTasks() {
     .catch((error) => console.error("Error fetching tasks:", error));
 }
 
-// Display tasks in the UI
-
-// Event listener for form submission
+// Enter tasks to the database
 taskForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const taskTitle = taskInput.value;
-
+  if (!taskTitle) {
+    return alert("Please enter a task");
+  }
   // Add task to the server
   fetch(`${serverUrl}/tasks`, {
     method: "POST",
@@ -38,9 +38,9 @@ taskForm.addEventListener("submit", function (event) {
 // Initial fetch of tasks when the page loads
 fetchTasks();
 
-// Function to edit a task
 
-// Function to edit a task
+
+// Function to display the tasks
 function displayTasks(tasks) {
   taskContainer.innerHTML = "";
   tasks.forEach((task) => {
@@ -49,13 +49,17 @@ function displayTasks(tasks) {
     console.log(task._id);
     taskDiv.innerHTML = `
                 <span>${task.title}</span>
+                <div class="buttons">
                 <button onclick="editTask('${task._id}')">Edit</button>
                 <button onclick="deleteTask('${task._id}')">Delete</button>
+                </div>
             `;
     taskContainer.appendChild(taskDiv);
   });
 }
 
+
+//Function to edit a task
 function editTask(taskId) {
   // Add your edit logic here
   const newTitle = prompt("Enter new task title:");
@@ -72,6 +76,7 @@ function editTask(taskId) {
       .catch((error) => console.error("Error editing task:", error));
   }
 }
+
 // Function to delete a task
 function deleteTask(taskId) {
   // Add your delete logic here

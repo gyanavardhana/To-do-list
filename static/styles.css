@@ -1,0 +1,107 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+}
+
+header {
+    background-color: #3498db; /* Blue */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#task-form {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#task-input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 60%;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #2ecc71; /* Green */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+
+}
+
+button:hover {
+    background-color: #27ae60; /* Darker green */
+}
+span{
+    padding-left: 10%;
+    justify-content: start;
+}
+.task{
+    display: flex;
+    align-items: center;
+    text-align: right; /* If you also want to align text horizontally to the right */
+    justify-content: space-between;
+}
+#task-container {
+    width: 60%;
+}
+
+.task-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#auth-container {
+    max-width: 300px;
+    margin: 30px auto;
+}
+
+footer {
+    background-color: #2c3e50; /* Dark blue-gray */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Customize login/signup form styles as needed */
