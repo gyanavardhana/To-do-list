@@ -10,6 +10,7 @@ const PORT = 5000;
 // middleware
 app.use(express.json());
 app.use(cors());
+app.use(express.static('./static'));
 
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/tasktracker', {})
@@ -24,6 +25,11 @@ const taskSchema = new mongoose.Schema({
 // Create task model
 const Task = mongoose.model('Task', taskSchema);
 
+
+// Routes
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
 // CRUD Operations.
 
 // Get all tasks
